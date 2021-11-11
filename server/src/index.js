@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 mongoose
     .connect("mongodb://localhost:27017/test", {
         useNewURLParser: true,
+        useUnifiedTopology: true,
     })
     .then(() => {
         console.log("MongoDB🍀 connected");
@@ -25,6 +26,9 @@ app.use(
         origin: "http://localhost:3000",
     })
 );
+
+//stop the post request to being undefined - bodyparser middleware
+app.use(express.json());
 
 //replacing cannot get / message
 app.get("/", (req, res) => {
