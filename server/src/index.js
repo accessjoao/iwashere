@@ -4,6 +4,18 @@ const helmet = require("helmet");
 const cors = require("cors");
 const middlewares = require("./middlewares");
 const mongoose = require("mongoose");
+mongoose
+    .connect("mongodb://localhost:27017/test", {
+        useNewURLParser: true,
+    })
+    .then(() => {
+        console.log("MongoDB🍀 connected");
+    })
+    .catch((e) => {
+        console.log(e);
+    });
+
+const logs = require("./api/logs");
 
 const app = express();
 app.use(morgan("common"));
@@ -20,6 +32,8 @@ app.get("/", (req, res) => {
         message: "Hello Joao!",
     });
 });
+
+app.use("/api/logs", logs);
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
