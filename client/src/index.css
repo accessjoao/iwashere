@@ -5,3 +5,8 @@ body {
     width: 100vw;
     overflow: hidden;
 }
+
+.marker {
+    stroke: red;
+    fill: red;
+}
