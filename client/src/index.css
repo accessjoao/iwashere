@@ -9,4 +9,5 @@ body {
 .marker {
     stroke: red;
     fill: red;
+    transform: translate(-20%, -100%);
 }
