@@ -43,7 +43,7 @@ const MapBox = () => {
               <div
                 onClick={() =>
                   setShowPopup({
-                    ...showPopup,
+                    //...showPopup,
                     [entry._id]: true,
                   })
                 }
@@ -71,10 +71,16 @@ const MapBox = () => {
                 longitude={entry.longitude}
                 closeButton={true}
                 closeOnClick={false}
-                onClose={() => this.setState({ showPopup: false })}
+                dynamicPosition={true}
+                onClose={() => setShowPopup({})}
                 anchor="top"
               >
-                <div>You are here</div>
+                <div className="popup" />
+                <h3>{entry.title}</h3>
+                <p>{entry.comments}</p>
+                <small>
+                  Visit date: {new Date(entry.visitDate).toLocaleDateString()}
+                </small>
               </Popup>
             ) : null}
           </>

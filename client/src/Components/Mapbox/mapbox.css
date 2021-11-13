@@ -3,3 +3,7 @@
     fill: red;
     transform: translate(-20%, -100%);
 }
+
+.popup {
+    max-width: "200px";
+}
