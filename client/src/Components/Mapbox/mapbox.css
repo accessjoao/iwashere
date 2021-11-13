@@ -6,4 +6,13 @@
 
 .popup {
     max-width: "200px";
+    padding: 1rem;
+}
+
+.entry-form label,
+.entry-form input,
+.entry-form textarea {
+    margin-right: 0.5rem;
+    display: block;
+    width: 100%;
 }
