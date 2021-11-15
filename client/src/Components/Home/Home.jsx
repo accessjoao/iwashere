@@ -1,13 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import { CssBaseline } from "@material-ui/core";
+import bgImage from "./greymap.jpg";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    minHeight: "100vh",
+    backgroundImage: `url(${bgImage})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center center",
+    backgroundSize: "cover",
+    backgroundAttachment: "fixed",
+    height: "100%",
+  },
+}));
 
 function Home() {
+  const classes = useStyles();
   return (
-    <div>
-      <h1>Home Page</h1>
-      <Link to="/mapbox">
-        <i className="material-icons backtext">Home</i>
-      </Link>
+    <div className={classes.root}>
+      <CssBaseline />
     </div>
   );
 }
