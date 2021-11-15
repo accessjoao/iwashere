@@ -1,20 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import "./mapbox.css";
+import { useForm } from "react-hook-form";
+import { createLogEntry } from "../../FrontApi";
 
-const LogEntryFrom = () => {
+const LogEntryFrom = ({ location, onClose }) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const { register, handleSubmit } = useForm();
+  const onSubmit = async (data) => {
+    try {
+      setLoading(true);
+      data.latitude = location.latitude;
+      data.longitude = location.longitude;
+      await createLogEntry(data);
+
+      onClose();
+    } catch (error) {
+      console.error(error);
+      setError(error.message);
+      setLoading(false);
+    }
+  };
   return (
-    <form className="entry-form">
-      <label for="title">Title</label>
-      <input name="title" required />
-      <label for="comments">Comments</label>
-      <textarea name="comments" rows={3}></textarea>
-      <label for="description">Description</label>
-      <texarea name="description" rows={3}></texarea>
-      <label for="image">Image</label>
-      <input name="image" />
-      <label for="visitDate">Visit Date</label>
-      <input name="visitDate" type="date" />
-      <button>I was here!</button>
+    <form onSubmit={handleSubmit(onSubmit)} className="entry-form">
+      {error ? <h3 className="error">{error}</h3> : null}
+      <label htmlFor="title">Title</label>
+      <input {...register("title", { required: true })} />
+      <label htmlFor="comments">Comments</label>
+      <textarea {...register("comments")} rows={3}></textarea>
+      <label htmlFor="description">Description</label>
+      <textarea {...register("description")} rows={3}></textarea>
+      <label htmlFor="image">Image</label>
+      <input {...register("image")} />
+      <label htmlFor="visitDate">Visit Date</label>
+      <input {...register("visitDate")} type="date" />
+
+      <button disabled={loading}>
+        {loading ? "Loading..." : "I Was Here"}
+      </button>
     </form>
   );
 };

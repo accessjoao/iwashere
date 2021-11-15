@@ -18,11 +18,13 @@ const MapBox = () => {
     zoom: 0.9,
   });
 
+  const getEntries = async () => {
+    const logEntries = await listLogEntries();
+    setLogEntries(logEntries);
+  };
+
   useEffect(() => {
-    (async () => {
-      const logEntries = await listLogEntries();
-      setLogEntries(logEntries);
-    })();
+    getEntries();
   }, []);
   //get latitude and longitude where they click
   const showAddMarkerPopup = (event) => {
@@ -43,9 +45,8 @@ const MapBox = () => {
         onDblClick={showAddMarkerPopup}
       >
         {logEntries.map((entry) => (
-          <>
+          <React.Fragment key={entry._id}>
             <Marker
-              key={entry._id}
               latitude={entry.latitude}
               longitude={entry.longitude}
 
@@ -77,11 +78,14 @@ const MapBox = () => {
                 <h3>{entry.title}</h3>
                 <p>{entry.comments}</p>
                 <small>
-                  Visit date: {new Date(entry.visitDate).toLocaleDateString()}
+                  Visit Date: {new Date(entry.visitDate).toLocaleDateString()}
                 </small>
+                {entry.image ? (
+                  <img src={"entry.image"} alt={entry.title} />
+                ) : null}
               </Popup>
             ) : null}
-          </>
+          </React.Fragment>
         ))}
         {addEntryLocation ? (
           <>
@@ -104,7 +108,13 @@ const MapBox = () => {
               anchor="top"
             >
               <div className="popup">
-                <LogEntryFrom />
+                <LogEntryFrom
+                  onClose={() => {
+                    setAddEntryLocation(null);
+                    getEntries();
+                  }}
+                  location={addEntryLocation}
+                />
               </div>
             </Popup>
           </>

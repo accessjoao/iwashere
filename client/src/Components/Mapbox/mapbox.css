@@ -1,12 +1,21 @@
 .marker {
-    stroke: red;
-    fill: red;
+    stroke: #081229;
+    fill: #081229;
     transform: translate(-20%, -100%);
 }
 
 .popup {
     max-width: "200px";
     padding: 1rem;
+    background-color: #8b9eca;
+}
+
+.popup img {
+    height: 200px;
+    width: auto;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
 }
 
 .entry-form label,
@@ -15,4 +24,8 @@
     margin-right: 0.5rem;
     display: block;
     width: 100%;
+}
+
+.error {
+    color: red;
 }

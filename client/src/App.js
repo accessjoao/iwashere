@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Navbar from "./Components/Navbar/navbar.jsx";
 import MapBox from "./Components/Mapbox/mapbox.jsx";
+import Home from "./Components/Home/Home.jsx";
+import { Routes, Route, link } from "react-router-dom";
 
 import "./App.css";
 
@@ -9,7 +11,11 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <MapBox />
+
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/mapbox" element={<MapBox />} />
+        </Routes>
       </div>
     );
   }
