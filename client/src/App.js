@@ -5,6 +5,7 @@ import Home from "./Components/Home/Home.jsx";
 import SignUp from "./Components/SignUp/SignUp.jsx";
 import { Routes, Route, link } from "react-router-dom";
 import "./App.css";
+import MapBoxDark from "./Components/MapboxDark/mapboxDark.jsx";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/mapbox" element={<MapBox />} />
           <Route exact path="/sign-up" element={<SignUp />} />
+          <Route exact path="/mapbox-dark" element={<MapBoxDark />} />
         </Routes>
       </div>
     );

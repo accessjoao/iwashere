@@ -55,6 +55,16 @@ function Navbar() {
                 Map
               </Link>
             </li>
+
+            <li className="nav-item">
+              <Link
+                to="/mapbox-dark"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                Dark Map
+              </Link>
+            </li>
             <li className="nav-item">
               <Link
                 to="/sign-up"

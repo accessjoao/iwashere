@@ -1,6 +1,6 @@
 .marker {
-    stroke: #081229;
-    fill: #09142e;
+    stroke: rgb(170, 40, 40);
+    fill: red;
     transform: translate(-20%, -100%);
 }
 

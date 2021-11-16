@@ -2,11 +2,11 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { listLogEntries } from "../../FrontApi";
-import "./mapbox.css";
-import Flag from "./flag";
+import "./mapboxDark.css";
+import FlagDark from "./flagDark";
 import LogEntryFrom from "./LogEntryForm";
 
-const MapBox = () => {
+const MapBoxDark = () => {
   const [logEntries, setLogEntries] = useState([]);
   const [showPopup, setShowPopup] = useState({});
   const [addEntryLocation, setAddEntryLocation] = useState(null);
@@ -43,8 +43,8 @@ const MapBox = () => {
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         //mapStyle="mapbox://styles/accessjoao/ckvwr2unz0sgb14oa0tsnxngk"
         //mapStyle="mapbox://styles/accessjoao/ckw1rtodp0f3m14pgpn9mc39o"
-        mapStyle="mapbox://styles/accessjoao/ckw1rzpb404r914sfw3v162fd"
-        //mapStyle="mapbox://styles/accessjoao/ckw27rn7d0lhf15jyf9w9iry3"
+        //mapStyle="mapbox://styles/accessjoao/ckw1rzpb404r914sfw3v162fd"
+        mapStyle="mapbox://styles/accessjoao/ckw27rn7d0lhf15jyf9w9iry3"
         onDblClick={showAddMarkerPopup}
       >
         {logEntries.map((entry) => (
@@ -64,7 +64,7 @@ const MapBox = () => {
                   })
                 }
               >
-                <Flag></Flag>
+                <FlagDark></FlagDark>
               </div>
             </Marker>
             {showPopup[entry._id] ? (
@@ -99,7 +99,7 @@ const MapBox = () => {
               //offsetLeft={-5}
               // offsetTop={-20}
             >
-              <Flag></Flag>
+              <FlagDark></FlagDark>
             </Marker>
             <Popup
               latitude={addEntryLocation.latitude}
@@ -127,4 +127,4 @@ const MapBox = () => {
   );
 };
 
-export default MapBox;
+export default MapBoxDark;
