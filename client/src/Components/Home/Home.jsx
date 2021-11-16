@@ -1,25 +1,10 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { CssBaseline } from "@material-ui/core";
-import bgImage from "./greymap.jpg";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    minHeight: "100vh",
-    backgroundImage: `url(${bgImage})`,
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center center",
-    backgroundSize: "cover",
-    backgroundAttachment: "fixed",
-    height: "100%",
-  },
-}));
+import HeroSection from "./HeroSection";
 
 function Home() {
-  const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <CssBaseline />
+    <div>
+      <HeroSection></HeroSection>
     </div>
   );
 }

@@ -41,7 +41,9 @@ const MapBox = () => {
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
-        mapStyle="mapbox://styles/accessjoao/ckvwr2unz0sgb14oa0tsnxngk"
+        //mapStyle="mapbox://styles/accessjoao/ckvwr2unz0sgb14oa0tsnxngk"
+        //mapStyle="mapbox://styles/accessjoao/ckw1rtodp0f3m14pgpn9mc39o"
+        mapStyle="mapbox://styles/accessjoao/ckw1rzpb404r914sfw3v162fd"
         onDblClick={showAddMarkerPopup}
       >
         {logEntries.map((entry) => (
