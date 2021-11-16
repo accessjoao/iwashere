@@ -10,6 +10,7 @@ const MapBoxDark = () => {
   const [logEntries, setLogEntries] = useState([]);
   const [showPopup, setShowPopup] = useState({});
   const [addEntryLocation, setAddEntryLocation] = useState(null);
+  const [entryId, setEntryId] = useState("");
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "100vh",
@@ -17,6 +18,7 @@ const MapBoxDark = () => {
     longitude: 0,
     zoom: 1.5,
   });
+  const [update, setUpdate] = useState(false);
 
   const getEntries = async () => {
     const logEntries = await listLogEntries();
@@ -25,7 +27,7 @@ const MapBoxDark = () => {
 
   useEffect(() => {
     getEntries();
-  }, []);
+  }, [update]);
   //get latitude and longitude where they click
   const showAddMarkerPopup = (event) => {
     const [longitude, latitude] = event.lngLat;
@@ -33,6 +35,28 @@ const MapBoxDark = () => {
       latitude,
       longitude,
     });
+  };
+
+  const deleteHandler = async () => {
+    try {
+      console.log(entryId);
+      const response = await fetch("http://localhost:1337/api/logs", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: entryId }),
+      });
+      const data = response.json();
+      if (data) {
+        console.log(data);
+        console.log(update, logEntries);
+        setUpdate(!update);
+        console.log(update, logEntries);
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -57,12 +81,13 @@ const MapBoxDark = () => {
               // offsetTop={-20}
             >
               <div
-                onClick={() =>
+                onClick={() => {
                   setShowPopup({
                     //...showPopup,
                     [entry._id]: true,
-                  })
-                }
+                  });
+                  setEntryId(entry._id);
+                }}
               >
                 <FlagDark></FlagDark>
               </div>
@@ -86,6 +111,7 @@ const MapBoxDark = () => {
                 {entry.image ? (
                   <img src={"entry.image"} alt={entry.title} />
                 ) : null}
+                <button onClick={deleteHandler}>Delete</button>
               </Popup>
             ) : null}
           </React.Fragment>
@@ -119,6 +145,7 @@ const MapBoxDark = () => {
                   location={addEntryLocation}
                 />
               </div>
+              <button onClick={deleteHandler}>Delete</button>
             </Popup>
           </>
         ) : null}

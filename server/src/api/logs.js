@@ -33,10 +33,13 @@ router.post("/", async(req, res, next) => {
 // delete route
 
 router.delete("/", async(req, res, next) => {
+    console.log(req.body);
     try {
-        const deleted = await LogEntry.findByIdAndDelete();
+        const id = req.body.id;
+        const deleted = await LogEntry.findByIdAndDelete({ _id: id });
         res.json(deleted);
     } catch (error) {
+        console.log(req.body);
         next(error);
     }
 });
