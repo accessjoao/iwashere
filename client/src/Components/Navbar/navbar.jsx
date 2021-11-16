@@ -7,30 +7,49 @@ import HomeIcon from "@mui/icons-material/Home";
 import { Toolbar } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
-  appbar: {
-    background: "none",
+  root: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
     fontFamily: "Nunito",
   },
+  appbar: {
+    background: "none",
+  },
+  appbarWrapper: {
+    width: "60%",
+    margin: "0 auto",
+  },
+  appbarTitle: {
+    flexGrow: 2,
+  },
+
   icon: {
     color: "black",
     fontSize: "2rem",
   },
-  appbarTitle: {
-    flexGrow: 1.2,
+
+  colorText: {
+    color: "green",
   },
-  appbarWrapper: {
-    width: "80%",
-    margin: "0 auto",
+
+  title: {
+    background: "none",
+    color: "none",
+    fontFamily: "Nunito",
   },
 }));
 
 export default function Navbar() {
   const classes = useStyles();
   return (
-    <div>
+    <div className={classes.root}>
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
-          <h1 className={classes.appbarTitle}>I Was Here</h1>
+          <h1 className={classes.appbarTitle}>
+            I<span className={classes.colorText}>Was</span>Here.
+          </h1>
           <Link to="/">
             <i className="material-icons backtext">Home</i>
             <IconButton>
@@ -41,6 +60,12 @@ export default function Navbar() {
             <i className="material-icons backtext">MapBox</i>
           </Link>
         </Toolbar>
+
+        <h1 className={classes.title}>
+          Select the places you've
+          <br />
+          <span className={classes.colorText}>Visited.</span>
+        </h1>
       </AppBar>
     </div>
   );
@@ -69,4 +94,42 @@ class Navbar extends Component {
 }
 
 export default Navbar;
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+    fontFamily: 'Nunito',
+  },
+  appbar: {
+    background: 'none',
+  },
+  appbarWrapper: {
+    width: '80%',
+    margin: '0 auto',
+  },
+  appbarTitle: {
+    flexGrow: '1',
+  },
+  icon: {
+    color: '#fff',
+    fontSize: '2rem',
+  },
+  colorText: {
+    color: '#5AFF3D',
+  },
+  container: {
+    textAlign: 'center',
+  },
+  title: {
+    color: '#fff',
+    fontSize: '4.5rem',
+  },
+  goDown: {
+    color: '#5AFF3D',
+    fontSize: '4rem',
+  },
+}));
 */
