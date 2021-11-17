@@ -33,7 +33,7 @@ const LogEntryFrom = ({ location, onClose }) => {
       <input {...register("image")} />
       <label htmlFor="visitDate">Visit Date</label>
       <input {...register("visitDate")} type="date" />
-
+      <br />
       <button disabled={loading}>
         {loading ? "Loading..." : "I Was Here"}
       </button>

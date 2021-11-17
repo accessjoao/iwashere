@@ -32,7 +32,7 @@ function Navbar() {
             <i className="fas fa-home"></i>
           </Link>
 
-          <Link to="/mapbox" className="navbar-logo">
+          <Link to="/logos" className="navbar-logo">
             <i className="fas fa-globe-americas"></i>
           </Link>
 

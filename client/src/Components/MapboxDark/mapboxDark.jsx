@@ -119,6 +119,7 @@ const MapBoxDark = () => {
                   ></div>
                 ) : // <img src={"entry.image"} alt={entry.title} />
                 null}
+                <br />
 
                 <button onClick={deleteHandler}>Delete</button>
               </Popup>

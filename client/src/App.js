@@ -6,6 +6,7 @@ import { Routes, Route, link } from "react-router-dom";
 import "./App.css";
 import MapBoxDark from "./Components/MapboxDark/mapboxDark.jsx";
 import LogIn from "./Components/Login/Login.jsx";
+import Logos from "./Components/Logos/logos.jsx";
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
           <Route exact path="/mapbox" element={<MapBox />} />{" "}
           <Route exact path="/login" element={<LogIn />} />{" "}
           <Route exact path="/mapbox-dark" element={<MapBoxDark />} />{" "}
+          <Route exact path="/logos" element={<Logos />} />
         </Routes>{" "}
       </div>
     );
