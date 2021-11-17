@@ -109,8 +109,17 @@ const MapBoxDark = () => {
                   Visit Date: {new Date(entry.visitDate).toLocaleDateString()}
                 </small>
                 {entry.image ? (
-                  <img src={"entry.image"} alt={entry.title} />
-                ) : null}
+                  <div
+                    style={{
+                      backgroundImage: `url(${entry.image})`,
+                      height: "200px",
+                      width: "auto",
+                    }}
+                    className="image-class"
+                  ></div>
+                ) : // <img src={"entry.image"} alt={entry.title} />
+                null}
+
                 <button onClick={deleteHandler}>Delete</button>
               </Popup>
             ) : null}
@@ -145,7 +154,6 @@ const MapBoxDark = () => {
                   location={addEntryLocation}
                 />
               </div>
-              <button onClick={deleteHandler}>Delete</button>
             </Popup>
           </>
         ) : null}

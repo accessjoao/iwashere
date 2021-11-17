@@ -28,9 +28,12 @@ const LogEntryFrom = ({ location, onClose }) => {
       <input {...register("title", { required: true })} />
       <label htmlFor="comments">Comments</label>
       <textarea {...register("comments")} rows={3}></textarea>
+
+      <label htmlFor="image">Image</label>
+      <input {...register("image")} />
       <label htmlFor="visitDate">Visit Date</label>
       <input {...register("visitDate")} type="date" />
-      <br></br>
+
       <button disabled={loading}>
         {loading ? "Loading..." : "I Was Here"}
       </button>

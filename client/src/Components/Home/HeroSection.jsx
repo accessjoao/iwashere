@@ -11,13 +11,14 @@ function HeroSection() {
       <h1>I Was Here</h1>
       <p>Double click on the map to log where you've been!</p>
       <div className="hero-btns">
-        <Button
+        {/* <Button
           className="btns"
           buttonStyle="btn--outline"
           buttonSize="btn--large"
         >
           GET STARTED
         </Button>
+         */}
         <Button
           className="btns"
           buttonStyle="btn--primary"

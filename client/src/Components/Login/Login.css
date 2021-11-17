@@ -1,0 +1,43 @@
+.card-home {
+    max-width: 800px;
+    width: auto;
+    margin: 0 auto;
+    margin: 5% auto !important;
+}
+
+.card-home:hover {
+    transform: scale(1);
+    opacity: 1;
+    cursor: pointer;
+}
+
+.card-login {
+    text-align: center;
+    width: 50vw;
+    min-height: 6vh;
+    padding: 2%;
+    margin: 5% auto !important;
+    border-radius: 10px;
+}
+
+.card-login>input {
+    margin: 1.5rem !important;
+    width: 85% !important;
+    border-radius: 5px !important;
+    border: 0.5px solid grey !important;
+    box-shadow: 0 0.5px 0 0 grey !important;
+    padding-left: 7.5px !important;
+}
+
+.card-login>input:focus {
+    border: 1px solid #000 !important;
+    box-shadow: 0 1px 0 0 #000 !important;
+}
+
+.insta-btn {
+    width: 90% !important;
+    border-radius: 5px;
+    background-color: rgb(88, 88, 153);
+    color: white;
+    font-weight: 300;
+}

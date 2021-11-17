@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "material-ui": "^0.20.2"
+    "firebase": "^9.4.1",
+    "material-ui": "^0.20.2",
+    "react-image-crop": "^9.0.5"
   }
 }
