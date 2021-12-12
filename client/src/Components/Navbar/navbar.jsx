@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+// eslint-disable-next-line
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 
 function Navbar() {
   const [click, setClick] = useState(false);
+  // eslint-disable-next-line
   const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
@@ -33,7 +35,7 @@ function Navbar() {
           </Link>
 
           <Link to="/logos" className="navbar-logo">
-            <i className="fas fa-globe-americas"></i>
+          <i className="fas fa-cogs"></i>
           </Link>
 
           <div className="menu-icon" onClick={handleClick}>
@@ -82,22 +84,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-/*
-class Navbar extends Component {
-  render() {
-    return (
-      <div className="nav">
-        <img className="img" src={logo} height="30" alt=""></img>
-        
-        <Link to="/mapbox">
-          <i className="material-icons backtext">MapBox</i>
-        </Link>
-      </div>
-    );
-  }
-}
-
-export default Navbar;
-
-*/

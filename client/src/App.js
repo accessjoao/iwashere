@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navbar from "./Components/Navbar/navbar.jsx";
 import MapBox from "./Components/Mapbox/mapbox.jsx";
 import Home from "./Components/Home/Home.jsx";
+// eslint-disable-next-line
 import { Routes, Route, link } from "react-router-dom";
 import "./App.css";
 import MapBoxDark from "./Components/MapboxDark/mapboxDark.jsx";

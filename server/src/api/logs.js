@@ -44,19 +44,4 @@ router.delete("/", async(req, res, next) => {
     }
 });
 
-/*
-
-exports.deleteTrip = async (req,res)=> {
-  try{
-    const response = await Trip.findByIdAndDelete(req.params.tripId)
-    res.status(200).json({response})
-  }
-  catch(err){
-    res.status(400).json({error: err, message:"Could not delete trip"})
-  }
-
-*/
-
-// edit route
-
 module.exports = router;
