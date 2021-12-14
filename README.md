@@ -17,4 +17,4 @@ On the server folder (cd server): `npm run dev` on the terminal to start the ser
 
 Open a different terminal and go to the client folder (cd client): `npm start` to start the react-app on your browser.
 
-![screenshot](https://ibb.co/hdPp1WW)
+![screenshot](https://i.ibb.co/gW5sFTT/iwashere.png)
